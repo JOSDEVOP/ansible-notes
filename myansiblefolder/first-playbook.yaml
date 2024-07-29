@@ -1,7 +1,7 @@
 ---
 
-  - name:  Installing and start apache
-    hosts:  all
+  - name:  Installing  apache2
+    hosts:  app
     become: yes
 
 
@@ -11,9 +11,13 @@
           name: apache2
           state: present
 
-      - name: start apache
-        ansible.builtin.service:
-          name: apache2
-          state: started    
+     
           
 
+      - name: Copy file with owner and permissions
+        ansible.builtin.copy:
+          src: ./index.html
+          dest: /var/www/html
+          owner: root
+          group: root
+          mode: '0644'
