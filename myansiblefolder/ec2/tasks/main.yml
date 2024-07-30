@@ -1,0 +1,14 @@
+---
+
+  - name:  update the system
+    ansible.builtin.apt:
+      update_cache: yes
+      upgrade: dist
+
+
+  - name:  installing apache2
+    ansible.builtin.apt:
+      name: apache2
+      state: present
+      
+# tasks file for ec2

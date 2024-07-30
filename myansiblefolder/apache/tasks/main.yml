@@ -1,0 +1,14 @@
+---
+   - name: installing apache2
+     ansible.builtin.apt:
+       name: package_name
+       state: present
+
+   - name: copying files
+     ansible.builtin.copy:
+       src: /files/index.html
+       dest: des
+   - name:  start
+     ansible.builtin.service :
+        name: package_service
+# tasks file for apache
